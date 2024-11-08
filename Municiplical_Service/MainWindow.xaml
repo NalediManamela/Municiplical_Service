@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Municiplical_Service"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="SkyBlue">
     <Grid>
 
+        <TextBlock Text="WELCOME TO MUNCIPAL SERVICE"
+           FontSize="20" 
+           FontWeight="Bold" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Top" 
+           Margin="255,59,0,0"/>
+        <TextBlock Text="HOW CAN WE HELP YOU?? "
+           FontSize="20" 
+           FontWeight="Bold" 
+           HorizontalAlignment="Left" 
+           VerticalAlignment="Top" 
+           Margin="305,118,0,0"/>
+        <Button x:Name="btnReportIssue" Content="Report Issues" Click="btnReportIssue_Click" Margin="72,186,519,185" Background="White" Foreground="Black"/>
+        <Button x:Name="btnLocalEvents" Content="Local Events and Announcements" Margin="286,278,271,89" Click="btnEventAnnouncements_Click" Background="White" Foreground="Black" />
+        <Button x:Name="btnServiceRequestStatus" Content="Service Request Status" Click="btnRequestStatus_Click" Margin="575,185,59,185" Background="White" Foreground="Black" />
     </Grid>
 </Window>

@@ -20,5 +20,22 @@ namespace Municiplical_Service
         {
             InitializeComponent();
         }
+        private void btnReportIssue_Click(object sender, RoutedEventArgs e)
+        {
+            ReportIssueWindow reportIssueWindow = new ReportIssueWindow();
+            reportIssueWindow.Show();
+        }
+
+        private void btnEventAnnouncements_Click(object sender, RoutedEventArgs e)
+        {
+            //EventWindow eventWindow = new EventWindow();
+           // eventWindow.Show();
+        }
+
+        private void btnRequestStatus_Click(object sender, RoutedEventArgs e)
+        {
+           // RequestStatusWindow requestStatusWindow = new RequestStatusWindow();
+           // requestStatusWindow.Show();
+        }
     }
 }
