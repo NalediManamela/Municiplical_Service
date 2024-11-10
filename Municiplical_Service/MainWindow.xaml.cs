@@ -28,8 +28,8 @@ namespace Municiplical_Service
 
         private void btnEventAnnouncements_Click(object sender, RoutedEventArgs e)
         {
-            //EventWindow eventWindow = new EventWindow();
-           // eventWindow.Show();
+            EventWindow eventWindow = new EventWindow();
+            eventWindow.Show();
         }
 
         private void btnRequestStatus_Click(object sender, RoutedEventArgs e)
