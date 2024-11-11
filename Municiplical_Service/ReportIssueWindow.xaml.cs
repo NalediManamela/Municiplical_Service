@@ -88,47 +88,30 @@ namespace Municiplical_Service
             string category = (cmbCategory.SelectedItem as ComboBoxItem)?.Content.ToString();
             string description = new TextRange(txtDescription.Document.ContentStart, txtDescription.Document.ContentEnd).Text;
 
-            if (string.IsNullOrWhiteSpace(location))
+            if (string.IsNullOrWhiteSpace(location) || string.IsNullOrWhiteSpace(category) || string.IsNullOrWhiteSpace(description))
             {
-                MessageBox.Show("Please enter the location of the issue.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(category))
-            {
-                MessageBox.Show("Please select a category.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(description))
-            {
-                MessageBox.Show("Please provide a description of the issue.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please complete all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            // Data structure to store issues
-            var newIssue = new ReportedIssues
-            {
-                Location = location,
-                Category = category,
-                Description = description,
-                Attachment = attachedFilePath
-            };
-            reportedIssues.Add(newIssue);
-            progressBar.Value = 100;
-            lblProgress.Text = "Report submitted successfully!";
+            var newIssue = new ReportedIssues(0, location, category, description, attachedFilePath);
+            ReportedIssuesRepository.Instance.AddIssue(newIssue);
 
             MessageBox.Show("Your issue has been reported successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-
-            // Clear the form for next input
+            // Clear form
             txtLocation.Clear();
             cmbCategory.SelectedIndex = -1;
             txtDescription.Document.Blocks.Clear();
             lblAttachment.Text = "";
             progressBar.Value = 0;
+            lblProgress.Text = "";
         }
+
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

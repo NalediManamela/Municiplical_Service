@@ -34,8 +34,8 @@ namespace Municiplical_Service
 
         private void btnRequestStatus_Click(object sender, RoutedEventArgs e)
         {
-           // RequestStatusWindow requestStatusWindow = new RequestStatusWindow();
-           // requestStatusWindow.Show();
+           RequestStatusWindow requestStatusWindow = new RequestStatusWindow();
+           requestStatusWindow.Show();
         }
     }
 }
