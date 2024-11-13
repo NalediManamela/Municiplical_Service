@@ -3,20 +3,60 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Municiplical_Service"
         mc:Ignorable="d"
-        Title="RequestStatusWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dgServiceRequests" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Title="Service Request Status" Height="555" Width="982"
+        Background="SkyBlue">
+    <Grid Margin="20">
+        <!-- Title -->
+        <TextBlock Text="Service Request Status" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="#333" 
+                   Margin="0,12,0,391"
+                   HorizontalAlignment="Center" Width="253"/>
+
+        <!-- Search Bar -->
+
+        <TextBox x:Name="txtSearch" 
+                     Width="250" 
+                     Height="30" 
+                    
+                     Text="Search by ID, Location, or Category..." Margin="308,73,302,341" TextChanged="txtSearch_TextChanged"
+                    />
+        <Button Content="Search" 
+                    Width="80" 
+                    Height="30" 
+                    Background="#007ACC" 
+                    Foreground="White"
+                    BorderBrush="{x:Null}"
+                    Click="btnSearch_Click" Margin="627,73,153,341"
+                    />
+
+
+        <!-- DataGrid for displaying service requests -->
+        <DataGrid x:Name="dgServiceRequests" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  AlternatingRowBackground="#E7F3FF"
+                  RowBackground="White"
+                  GridLinesVisibility="None"
+                  BorderBrush="#007ACC"
+                  BorderThickness="1"
+                  ColumnHeaderHeight="40"
+                  RowHeight="35"
+                  Margin="35,151,10,93">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding RequestID}" Width="50"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding RequestID}" Width="60"/>
                 <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="150"/>
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="150"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="250"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
-                <DataGridTextColumn Header="Date Reported" Binding="{Binding DateReported}" Width="150"/>
+                <DataGridTextColumn Header="Date Reported" Binding="{Binding DateReported, StringFormat=\{0:dd MMM yyyy\}}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
+
+      
 
     </Grid>
 </Window>

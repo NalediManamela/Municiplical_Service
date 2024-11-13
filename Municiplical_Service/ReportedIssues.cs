@@ -8,7 +8,7 @@ using Municiplical_Service;
 
 namespace Municiplical_Service
 {
-    class ReportedIssues
+   public class ReportedIssues
     {
         public int RequestID { get; set; }
         public string Location { get; set; }
