@@ -21,7 +21,7 @@
                      Width="250" 
                      Height="30" 
                     
-                     Text="Search by ID, Location, or Category..." Margin="308,73,302,341" TextChanged="txtSearch_TextChanged"
+                     Text="Search by ID, Location, or Category..." Margin="308,73,302,341" 
                     />
         <Button Content="Search" 
                     Width="80" 

@@ -19,6 +19,8 @@ namespace Municiplical_Service
     /// </summary>
     public partial class RequestStatusWindow : Window
     {
+        private List<ReportedIssues> allIssues;
+
         public RequestStatusWindow()
         {
             InitializeComponent();
@@ -27,35 +29,29 @@ namespace Municiplical_Service
 
         private void LoadServiceRequests()
         {
-            var issues = ReportedIssuesRepository.Instance.GetAllIssues();
-            dgServiceRequests.ItemsSource = issues;
+            allIssues = ReportedIssuesRepository.Instance.GetAllIssues();
+            dgServiceRequests.ItemsSource = allIssues;
         }
 
-        private List<ReportedIssues> allIssues;
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            if (allIssues == null || !allIssues.Any())
-            {
-                MessageBox.Show("No service requests available.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-
             string searchText = txtSearch.Text.ToLower();
-            var filteredIssues = allIssues.Where(issue =>
-                issue.RequestID.ToString().Contains(searchText) ||
-                (issue.Location?.ToLower().Contains(searchText) ?? false) ||
-                (issue.Category?.ToLower().Contains(searchText) ?? false)).ToList();
 
-            dgServiceRequests.ItemsSource = filteredIssues;
-
-            // Display a message if no results are found
-            if (!filteredIssues.Any())
+            // Using Binary Search Tree for efficient ID-based search
+            if (int.TryParse(searchText, out int requestId))
             {
-                MessageBox.Show("No matching service requests found.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                var result = ReportedIssuesRepository.Instance.GetIssueById(requestId);
+                dgServiceRequests.ItemsSource = result != null ? new List<ReportedIssues> { result } : new List<ReportedIssues>();
+            }
+            else
+            {
+                // Search by Location or Category
+                var filteredIssues = allIssues.Where(issue =>
+                    (issue.Location?.ToLower().Contains(searchText) ?? false) ||
+                    (issue.Category?.ToLower().Contains(searchText) ?? false)).ToList();
+
+                dgServiceRequests.ItemsSource = filteredIssues;
             }
         }
-
-
-     
     }
 }
