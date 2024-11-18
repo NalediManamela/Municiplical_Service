@@ -27,20 +27,20 @@ namespace Municiplical_Service
             }
         }
 
-        // Add new issue
+   
         public void AddIssue(ReportedIssues issue)
         {
             issue.RequestID = _nextRequestId++;
             _serviceRequestBST.Insert(issue);
         }
 
-        // Get all issues using in-order traversal
+       
         public List<ReportedIssues> GetAllIssues()
         {
             return _serviceRequestBST.InOrderTraversal();
         }
 
-        // Get a specific issue by ID
+       
         public ReportedIssues GetIssueById(int requestId)
         {
             return _serviceRequestBST.Search(requestId);

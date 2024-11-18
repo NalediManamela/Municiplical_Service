@@ -41,6 +41,12 @@ namespace Municiplical_Service
             AddEventToSystem(new Event("Beach Day", new DateTime(2024, 11, 30), "Entertainment"));
             AddEventToSystem(new Event("Beach Clean Up", new DateTime(2024, 11, 20), "Volunteer"));
             AddEventToSystem(new Event("Market Day", new DateTime(2024, 10, 22), "Market"));
+            AddEventToSystem(new Event("Cultural Dance Show", new DateTime(2024, 12, 5), "Entertainment"));
+            AddEventToSystem(new Event("Art Exhibition", new DateTime(2024, 12, 8), "Art/Culture"));
+            AddEventToSystem(new Event("Coding Bootcamp", new DateTime(2024, 12, 15), "Education"));
+            AddEventToSystem(new Event("Blood Donation Drive", new DateTime(2024, 11, 25), "Health"));
+            AddEventToSystem(new Event("Christmas Parade", new DateTime(2024, 12, 24), "Festival"));
+            AddEventToSystem(new Event("Winter Sports Day", new DateTime(2024, 12, 10), "Sports"));
         }
 
         private void AddEventToSystem(Event newEvent)

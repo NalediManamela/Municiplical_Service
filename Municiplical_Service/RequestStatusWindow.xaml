@@ -7,15 +7,13 @@
         Title="Service Request Status" Height="555" Width="982"
         Background="SkyBlue">
     <Grid Margin="20">
-        <!-- Title -->
+      
         <TextBlock Text="Service Request Status" 
                    FontSize="24" 
                    FontWeight="Bold" 
                    Foreground="#333" 
                    Margin="0,12,0,391"
                    HorizontalAlignment="Center" Width="253"/>
-
-        <!-- Search Bar -->
 
         <TextBox x:Name="txtSearch" 
                      Width="250" 
@@ -33,7 +31,7 @@
                     />
 
 
-        <!-- DataGrid for displaying service requests -->
+        
         <DataGrid x:Name="dgServiceRequests" 
                   AutoGenerateColumns="False"
                   IsReadOnly="True"

@@ -15,7 +15,7 @@ namespace Municiplical_Service
         public string Category { get; set; }
         public string Description { get; set; }
         public string Attachment { get; set; }
-        public string Status { get; set; } // New status property
+        public string Status { get; set; } 
         public DateTime DateReported { get; set; }
 
         public ReportedIssues(int requestId, string location, string category, string description, string attachment)
@@ -25,7 +25,7 @@ namespace Municiplical_Service
             Category = category;
             Description = description;
             Attachment = attachment;
-            Status = "Pending"; // Default status
+            Status = "Pending"; 
             DateReported = DateTime.Now;
         }
 

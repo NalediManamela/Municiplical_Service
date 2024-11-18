@@ -43,7 +43,7 @@ namespace Municiplical_Service
             return node;
         }
 
-        // Search for a service request by ID
+       
         public ReportedIssues Search(int requestId)
         {
             return Search(Root, requestId);
@@ -60,7 +60,7 @@ namespace Municiplical_Service
                 return Search(node.Right, requestId);
         }
 
-        // In-order traversal to get all service requests
+        
         public List<ReportedIssues> InOrderTraversal()
         {
             List<ReportedIssues> result = new List<ReportedIssues>();

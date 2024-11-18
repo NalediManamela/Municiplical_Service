@@ -34,28 +34,28 @@ namespace Municiplical_Service
         {
             double progress = 0;
 
-            // Check if location is filled
+           
             if (!string.IsNullOrWhiteSpace(txtLocation.Text))
             {
                 progress += 33.33;
             }
 
-            // Check if category is selected
+            
             if (cmbCategory.SelectedIndex != -1)
             {
                 progress += 33.33;
             }
 
-            // Check if description is filled
+            
             if (!string.IsNullOrWhiteSpace(new TextRange(txtDescription.Document.ContentStart, txtDescription.Document.ContentEnd).Text))
             {
                 progress += 33.34;
             }
 
-            // Update the ProgressBar value
+         
             progressBar.Value = progress;
 
-            // Update engagement label
+            
             if (progress == 100)
             {
                 lblProgress.Text = "You're ready to submit!";
@@ -68,7 +68,7 @@ namespace Municiplical_Service
             }
         }
 
-        // OpenFileDialog for media attachment
+        
         private void btnAttachFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -81,7 +81,7 @@ namespace Municiplical_Service
                 lblAttachment.Text = $"Attached: {attachedFilePath}";
             }
         }
-        // Submit button
+    
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             string location = txtLocation.Text;
@@ -99,7 +99,6 @@ namespace Municiplical_Service
 
             MessageBox.Show("Your issue has been reported successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Clear form
             txtLocation.Clear();
             cmbCategory.SelectedIndex = -1;
             txtDescription.Document.Blocks.Clear();

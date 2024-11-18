@@ -37,7 +37,7 @@ namespace Municiplical_Service
         {
             string searchText = txtSearch.Text.ToLower();
 
-            // Using Binary Search Tree for efficient ID-based search
+            
             if (int.TryParse(searchText, out int requestId))
             {
                 var result = ReportedIssuesRepository.Instance.GetIssueById(requestId);

@@ -9,7 +9,7 @@
          Background="SkyBlue">
     <Grid>
         <Grid Margin="0,0,0,0">
-            <!-- Title Section -->
+         
             <TextBlock Text="Upcoming Local Events and Announcements"
                    FontSize="20" 
                    FontWeight="Bold" 
@@ -17,7 +17,7 @@
                    VerticalAlignment="Top" 
                    Margin="10,10,10,0"/>
 
-            <!-- DataGrid for displaying events -->
+           
             <DataGrid x:Name="eventDataGrid" 
                   AutoGenerateColumns="False" 
                   Height="200" 
@@ -32,7 +32,6 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <!-- Search by Category -->
             <TextBlock Text="Search by Category:" 
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Top" 
@@ -49,9 +48,17 @@
                 <ComboBoxItem Content="Entertainment"/>
                 <ComboBoxItem Content="Volunteer"/>
                 <ComboBoxItem Content="Market"/>
+                <ComboBoxItem Content="Art/Culture"/>
+                <ComboBoxItem Content="Education"/>
+                <ComboBoxItem Content="Health"/>
+                <ComboBoxItem Content="Sports"/>
+                <ComboBoxItem Content="Festival"/>
+                
+               
+
             </ComboBox>
 
-            <!-- Search by Date -->
+           
             <TextBlock Text="Search by Date:" 
                    HorizontalAlignment="Left" 
                    VerticalAlignment="Top" 
@@ -64,7 +71,6 @@
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top"/>
 
-            <!-- Search Button -->
             <Button x:Name="searchButton" 
                 Content="Search" 
                 Width="100" 
@@ -74,7 +80,7 @@
                 Margin="0,320,0,0"
                 Click="searchButton_Click"/>
 
-            <!-- Recommendations Section -->
+            
             <TextBlock Text="Recommended Events for You:" 
                    FontSize="16" 
                    FontWeight="Bold" 
